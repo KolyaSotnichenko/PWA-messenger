@@ -15,3 +15,5 @@ export default async function UsersLayout({ children }: { children: React.ReactN
     </Sidebar>
   );
 }
+
+export const revalidate = 200;

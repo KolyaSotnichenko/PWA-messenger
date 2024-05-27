@@ -35,3 +35,5 @@ const ConversationId = async ({ params }: { params: IParams }) => {
 };
 
 export default ConversationId;
+
+export const revalidate = 200;

@@ -35,7 +35,7 @@ const AuthForm = () => {
   });
 
   useEffect(() => {
-    if (session?.status === "authenticated") {
+    if (session?.data?.user) {
       router.push("/conversations");
     }
   }, [session?.status, router]);
@@ -79,22 +79,22 @@ const AuthForm = () => {
     }
   };
 
-  const socialAction = (action: string) => {
-    setIsLoading(true);
+  // const socialAction = (action: string) => {
+  //   setIsLoading(true);
 
-    signIn(action, { redirect: false })
-      .then((callback) => {
-        if (callback?.error) {
-          toast.error("Invalid credentials!");
-          return;
-        }
+  //   signIn(action, { redirect: false })
+  //     .then((callback) => {
+  //       if (callback?.error) {
+  //         toast.error("Invalid credentials!");
+  //         return;
+  //       }
 
-        if (callback?.ok) {
-          toast.success("logged in");
-        }
-      })
-      .finally(() => setIsLoading(false));
-  };
+  //       if (callback?.ok) {
+  //         toast.success("logged in");
+  //       }
+  //     })
+  //     .finally(() => setIsLoading(false));
+  // };
 
   return (
     <>
@@ -136,7 +136,7 @@ const AuthForm = () => {
               </Button>
             </div>
           </form>
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <div className="relative">
               <div
                 className="
@@ -159,7 +159,7 @@ const AuthForm = () => {
               <AuthSocialButton icon={BsGithub} onClick={() => socialAction("github")} />
               <AuthSocialButton icon={BsGoogle} onClick={() => socialAction("google")} />
             </div>
-          </div>
+          </div> */}
           <div
             className="
             mt-6 

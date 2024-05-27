@@ -17,3 +17,5 @@ export default async function ConversationsLayout({ children }: { children: Reac
     </Sidebar>
   );
 }
+
+export const revalidate = 200;
